@@ -30,7 +30,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { PaddleModule } from 'ngx-paddle';
+import { PaddleModule } from 'ngx-paddle-wrapper';
 
 @NgModule({
   declarations: [AppComponent],
@@ -65,7 +65,7 @@ import {
   PaddleCheckoutOptions,
   PaddleEventCallbackData,
   PADDLE_EVENT_TYPE,
-} from 'ngx-paddle';
+} from 'ngx-paddle-wrapper';
 
 export class ComponentThatImplementsPaddle implements AfterViewInit {
   private paddleOptions: PaddleCheckoutOptions = {
