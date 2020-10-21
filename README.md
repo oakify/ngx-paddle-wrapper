@@ -1,6 +1,6 @@
 # Angular Paddle Wrapper
 
-This is an Angular wrapper library for the Paddle.js.
+This is an Angular wrapper library for Paddle.js.
 
 The author has no affiliation with Paddle.com Market Limited.
 
@@ -25,12 +25,12 @@ $ yarn add ngx-paddle-wrapper
 #### 2) Import the PaddleModule
 
 ```typescript
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
 
-import { PaddleModule } from "ngx-paddle";
+import { PaddleModule } from 'ngx-paddle';
 
 @NgModule({
   declarations: [AppComponent],
@@ -58,22 +58,22 @@ export class AppModule {}
 Since most of the functionality is through the service you can imlpement this yourself to customize to your needs further.
 
 ```typescript
-import { Component, AfterViewInit } from "@angular/core";
+import { Component, AfterViewInit } from '@angular/core';
 
 import {
   PaddleService,
   PaddleCheckoutOptions,
   PaddleEventCallbackData,
   PADDLE_EVENT_TYPE,
-} from "ngx-paddle";
+} from 'ngx-paddle';
 
 export class ComponentThatImplementsPaddle implements AfterViewInit {
   private paddleOptions: PaddleCheckoutOptions = {
     product: 654321,
-    title: "Test Title",
-    message: "Test Message",
-    coupon: "TEST",
-    email: "test@test.com",
+    title: 'Test Title',
+    message: 'Test Message',
+    coupon: 'TEST',
+    email: 'test@test.com',
   };
 
   constructor(private paddleServ: PaddleService) {}
@@ -95,7 +95,7 @@ export class ComponentThatImplementsPaddle implements AfterViewInit {
   checkEvent(data: PaddleEventCallbackData) {
     // Handle Event
     if (data.event === PADDLE_EVENT_TYPE.CheckoutComplete) {
-      console.log("User has completed checkout!");
+      console.log('User has completed checkout!');
     } else {
       console.log(data.event);
     }
