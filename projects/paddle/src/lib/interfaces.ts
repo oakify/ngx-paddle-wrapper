@@ -3,7 +3,7 @@ export interface PaddleConfig {
   eventCallback?: Function;
 }
 export interface PaddleCheckoutOptions {
-  product: number;
+  product?: number;
   title?: string;
   message?: string;
   coupon?: string;
