@@ -31,6 +31,27 @@ export interface PaddleCheckoutOptions {
   displayModeTheme?: 'light' | 'dark';
 }
 
+export interface PaddlePrice {
+  gross: string;
+  net: string;
+  tax: string;
+  tax_included: boolean;
+}
+
+export interface PaddleProductPrice {
+  price: PaddlePrice;
+  quantity: number;
+  country: string;
+  recurring: {
+    price: PaddlePrice;
+    subscription: {
+      trial_days: number;
+      length: number;
+      type: 'day' | 'week' | 'month' | 'year';
+    };
+  };
+}
+
 export interface PaddleEventCallbackData {
   event: PADDLE_EVENT_TYPE;
   eventData: any;

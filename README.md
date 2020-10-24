@@ -103,7 +103,7 @@ export class ComponentThatImplementsPaddle implements AfterViewInit {
 }
 ```
 
-#### 4) Use Available Options (see official docs for more)
+#### 3c) Use Available Options (see official docs for more)
 
 For Directive:
 | Attribute/prop | input/output | optional/required | Type |Description |
@@ -117,6 +117,49 @@ For Directive:
 | onCheckoutEvent | output | optional | string | See docs |
 
 For Service: all other options
+
+#### 4) Get Price
+
+```typescript
+import { Component, AfterViewInit } from '@angular/core';
+
+import {
+  PaddleProductPrice,
+  PaddleService,
+  PaddleCheckoutOptions,
+  PaddleEventCallbackData,
+  PADDLE_EVENT_TYPE,
+} from 'ngx-paddle-wrapper';
+
+export class ComponentThatImplementsPaddle implements AfterViewInit {
+  private paddleOptions: PaddleCheckoutOptions = {
+    product: 654321,
+    title: 'Test Title',
+    message: 'Test Message',
+    coupon: 'TEST',
+    email: 'test@test.com',
+  };
+  price: PaddleProductPrice;
+
+  constructor(private paddleServ: PaddleService) {}
+
+  // Create and open programatically once the library is loaded.
+  ngAfterViewInit() {
+    this.paddleServ.create({
+      vendor: 123456,
+      eventCallback: (data: PaddleEventCallbackData) => {
+        this.checkEvent(data);
+      },
+    });
+    // GET YOUR PRODUCTS PRICE:
+    const numberOfProductsToPrice = 2;
+    this.price = await this.paddleServ.getPrice(this.paddleOptions.product, numberOfProductsToPrice);
+    // OR (quantity defaults to 1):
+    this.price = await this.paddleServ.getPrice(this.paddleOptions.product);
+  }
+  [...]
+}
+```
 
 ## How to contribute
 

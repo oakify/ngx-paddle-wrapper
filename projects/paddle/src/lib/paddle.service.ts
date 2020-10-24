@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { PaddleCheckoutOptions, PaddleConfig } from './interfaces';
+import {
+  PaddleCheckoutOptions,
+  PaddleConfig,
+  PaddleProductPrice,
+} from './interfaces';
 
 declare let Paddle: any;
 
@@ -25,6 +29,24 @@ export class PaddleService {
   public open(checkout: PaddleCheckoutOptions): void {
     if (this.loaded) {
       Paddle.Checkout.open(checkout);
+    }
+  }
+
+  public getPrice(
+    productId: number,
+    quantity: number = 1
+  ): Promise<PaddleProductPrice> {
+    if (this.loaded) {
+      return new Promise<PaddleProductPrice>((resolve, reject) => {
+        Paddle.Product.Prices(
+          productId,
+          quantity,
+          (prices: PaddleProductPrice) => {
+            if (!prices) reject('Error getting prices');
+            resolve(prices);
+          }
+        );
+      });
     }
   }
 
