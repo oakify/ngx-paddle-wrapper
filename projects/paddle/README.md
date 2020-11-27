@@ -82,9 +82,7 @@ export class ComponentThatImplementsPaddle implements AfterViewInit {
   ngAfterViewInit() {
     this.paddleServ.create({
       vendor: 123456,
-      eventCallback: (data: PaddleEventCallbackData) => {
-        this.checkEvent(data);
-      },
+      eventCallback: this.checkEvent,
     });
   }
 

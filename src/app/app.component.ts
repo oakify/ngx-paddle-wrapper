@@ -23,9 +23,7 @@ export class AppComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.paddleServ.create({
       vendor: this.vendorId,
-      eventCallback: (data: PaddleEventCallbackData) => {
-        this.checkEvent(data);
-      },
+      eventCallback: this.checkEvent,
     });
     this.price = await this.paddleServ.getPrice(this.productId);
   }
