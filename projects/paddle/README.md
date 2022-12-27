@@ -182,15 +182,15 @@ In the root directory of the repo:
 ng build paddle
 ```
 
-### Linking for local development
+### Installing for local development
 
 ```bash
-cd projects/paddle
-npm link
+cd dist/paddle
+npm pack
 ```
 
 In destination project
 
 ```bash
-npm link @saschwarz/ngx-paddle-wrapper
+npm install ../../../ngx-paddle/wrapper/dist/paddle/saschwarz-ngx-paddle-wrapper-1.0.0.tgz
 ```
