@@ -1,14 +1,17 @@
 {
-  "name": "ngx-paddle-wrapper",
-  "version": "0.0.4",
-  "peerDependencies": {},
+  "name": "@saschwarz/ngx-paddle-wrapper",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/compiler": "^15.0.4",
+    "@angular/core": "^15.0.4"
+  },
   "dependencies": {
     "tslib": "^2.0.0"
   },
   "description": "This is an Angular wrapper library for Paddle.js.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BoomDev/ngx-paddle-wrapper.git"
+    "url": "git+https://github.com/saschwarz/ngx-paddle-wrapper.git"
   },
   "keywords": [
     "angular",
@@ -16,10 +19,11 @@
     "paddle.js",
     "wrapper"
   ],
-  "author": "BoomDev",
+  "author": "Steve Schwarz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BoomDev/ngx-paddle-wrapper/issues"
+    "url": "https://github.com/saschwarz/ngx-paddle-wrapper/issues"
   },
-  "homepage": "https://github.com/BoomDev/ngx-paddle-wrapper#readme"
+  "homepage": "https://github.com/saschwarz/ngx-paddle-wrapper#readme",
+  "main": "src/public-api.ts"
 }

@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import {
   PaddleCheckoutOptions,
   PaddleConfig,
   PaddleProductPrice,
 } from './interfaces';
+
+import { Injectable } from '@angular/core';
 
 declare let Paddle: any;
 
@@ -48,6 +49,7 @@ export class PaddleService {
         );
       });
     }
+    return Promise.reject('Paddle not loaded');
   }
 
   /**
