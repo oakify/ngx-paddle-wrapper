@@ -179,7 +179,15 @@ Tests!
 In the root directory of the repo:
 
 ```bash
-ng build paddle
+ng build paddle --configuration production
+```
+
+### Publishing
+
+```bash
+npm login
+cd dist/paddle
+npm publish --access public
 ```
 
 ### Installing for local development
